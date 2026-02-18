@@ -368,7 +368,7 @@ const BirthdayExperience = ({ birthYear }) => {
                 </p>
 
                 <p className="text-lg text-white/80 leading-relaxed italic">
-                  "Salut banget sih Nae bisa tetep totalitas di tengah kesibukan real life-nya. Jaga kesehatan ya, tau kok pasti capek banget... 💪"
+                  "Salut banget sama Nae, bisa tetap maksimal pas ngidol dan cosplay padahal di RL lagi sibuk-sibuknya. Jaga kesehatan ya, Naweee! Keep strong and stay pretty!"
                 </p>
 
                 <div className="bg-orange-500/10 border border-orange-500/20 p-6 rounded-2xl">
