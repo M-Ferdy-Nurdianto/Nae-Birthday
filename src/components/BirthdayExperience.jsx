@@ -68,6 +68,7 @@ const BirthdayExperience = ({ birthYear }) => {
 
   // Auto-cycling logic for the slots: Sequential 1-by-1 from left
   useEffect(() => {
+    let currentSlot = 0;
     const intervalId = setInterval(() => {
       setSlotIndices(prev => {
         const next = [...prev];
@@ -75,7 +76,7 @@ const BirthdayExperience = ({ birthYear }) => {
         return next;
       });
       currentSlot = (currentSlot + 1) % PHOTO_SLOTS.length;
-    }, 4000); // Slowed down to 4s per change for better visibility
+    }, 4000); // Slowed down significantly for better visibility as requested. 
 
     return () => clearInterval(intervalId);
   }, []);
