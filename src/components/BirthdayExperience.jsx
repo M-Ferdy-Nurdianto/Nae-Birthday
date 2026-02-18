@@ -377,10 +377,6 @@ const BirthdayExperience = ({ birthYear }) => {
                   </p>
                 </div>
 
-                <p className="text-xl font-black text-orange-400 uppercase tracking-tight">
-                  Pokoknya hari ini wajib makan enak!<br/>
-                  Minimal Bebek atau Tiramisu sikat! 🦆🍰
-                </p>
               </div>
 
               {/* Birthday Cake Integration */}
