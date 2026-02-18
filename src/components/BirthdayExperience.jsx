@@ -68,7 +68,6 @@ const BirthdayExperience = ({ birthYear }) => {
 
   // Auto-cycling logic for the slots: Sequential 1-by-1 from left
   useEffect(() => {
-    let currentSlot = 0;
     const intervalId = setInterval(() => {
       setSlotIndices(prev => {
         const next = [...prev];
@@ -76,7 +75,7 @@ const BirthdayExperience = ({ birthYear }) => {
         return next;
       });
       currentSlot = (currentSlot + 1) % PHOTO_SLOTS.length;
-    }, 1000); // Cycle one slot every second
+    }, 4000); // Slowed down to 4s per change for better visibility
 
     return () => clearInterval(intervalId);
   }, []);
@@ -377,7 +376,7 @@ const BirthdayExperience = ({ birthYear }) => {
                   </p>
                   <div className="absolute -bottom-3 -right-2 bg-orange-600 px-3 py-1 rounded-lg shadow-lg rotate-3">
                     <p className="text-[10px] font-black text-white uppercase tracking-widest">
-                      Credit: @ikifer
+                      @ikifer
                     </p>
                   </div>
                 </div>
