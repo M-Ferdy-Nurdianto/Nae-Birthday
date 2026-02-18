@@ -68,30 +68,17 @@ const BirthdayExperience = ({ birthYear }) => {
 
   // Auto-cycling logic for the slots: Sequential 1-by-1 from left
   useEffect(() => {
-    const cycleSlot = (index) => {
+    let currentSlot = 0;
+    const intervalId = setInterval(() => {
       setSlotIndices(prev => {
         const next = [...prev];
-        next[index] = next[index] === 0 ? 1 : 0;
+        next[currentSlot] = next[currentSlot] === 0 ? 1 : 0;
         return next;
       });
-    };
+      currentSlot = (currentSlot + 1) % PHOTO_SLOTS.length;
+    }, 1000); // Cycle one slot every second
 
-    // Staggered intervals: Slot 1 starts at 0s, Slot 2 at 1s, etc.
-    const timers = PHOTO_SLOTS.map((_, i) => {
-      const timeoutId = setTimeout(() => {
-        cycleSlot(i);
-        const intervalId = setInterval(() => cycleSlot(i), 6000);
-        return intervalId;
-      }, i * 1000); // 1 per 1 from left
-      return timeoutId;
-    });
-
-    return () => {
-      timers.forEach(id => {
-        clearTimeout(id);
-        clearInterval(id);
-      });
-    };
+    return () => clearInterval(intervalId);
   }, []);
 
   // Auto-cleanup camera stream on unmount or tab close
