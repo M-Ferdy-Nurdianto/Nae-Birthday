@@ -36,7 +36,7 @@ function App() {
         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
           <svg width="800" height="800" viewBox="0 0 100 100" className="w-[80vw] h-[80vw] max-w-[600px] max-h-[600px]">
             <motion.path
-              d="M 50 90 L 53 82 L 50 71 L 40 60 L 25 55 L 15 48 M 25 55 L 30 35 L 45 28 L 55 18 L 52 10"
+              d="M 30 80 L 30 20 L 70 80 L 70 20"
               stroke="white"
               strokeWidth="0.4"
               fill="none"
@@ -45,23 +45,19 @@ function App() {
               animate={{ pathLength: 1 }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             />
-            {/* Constellation Stars - Circlet of Pisces */}
+            {/* Constellation Stars - Shaped like 'N' */}
             {[
-              {x: 50, y: 90}, {x: 58, y: 88}, {x: 62, y: 80}, {x: 58, y: 72}, {x: 50, y: 71}, {x: 42, y: 75}, {x: 43, y: 85},
-              // Cord
-              {x: 40, y: 60}, {x: 25, y: 55},
-              // Top Arm
-              {x: 15, y: 48}, {x: 10, y: 40},
-              // Right Arm
-              {x: 30, y: 35}, {x: 45, y: 28}, {x: 55, y: 18}, {x: 52, y: 10}, {x: 62, y: 8}
+              {x: 30, y: 80}, {x: 30, y: 65}, {x: 30, y: 50}, {x: 30, y: 35}, {x: 30, y: 20}, // Left bar
+              {x: 40, y: 35}, {x: 50, y: 50}, {x: 60, y: 65}, // Diagonal
+              {x: 70, y: 80}, {x: 70, y: 65}, {x: 70, y: 50}, {x: 70, y: 35}, {x: 70, y: 20}  // Right bar
             ].map((p, i) => (
               <motion.circle
                 key={i}
                 cx={p.x}
                 cy={p.y}
-                r={i % 3 === 0 ? "0.6" : "0.4"}
+                r={i % 4 === 0 ? "0.7" : "0.4"}
                 fill="white"
-                className="drop-shadow-[0_0_2px_white]"
+                className="drop-shadow-[0_0_3px_white]"
                 animate={{ 
                   opacity: [0.3, 1, 0.3],
                   scale: [1, 1.2, 1]
