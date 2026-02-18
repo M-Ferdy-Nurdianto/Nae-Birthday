@@ -363,7 +363,7 @@ const BirthdayExperience = ({ birthYear }) => {
               
               <div className="space-y-8 text-left md:text-center">
                 <p className="text-xl md:text-2xl font-bold leading-relaxed">
-                  Wish-nya semoga makin keren di Stellaria <br className="hidden md:block"/>
+                  Wish-nya semoga makin josjis di Stellaria <br className="hidden md:block"/>
                   & cosplay-nya makin ajib. ✨
                 </p>
 
@@ -371,10 +371,15 @@ const BirthdayExperience = ({ birthYear }) => {
                   "Salut banget sama Nae, bisa tetap maksimal pas ngidol dan cosplay padahal di RL lagi sibuk-sibuknya. Jaga kesehatan ya, Naweee! Keep strong and stay pretty!"
                 </p>
 
-                <div className="bg-orange-500/10 border border-orange-500/20 p-6 rounded-2xl">
+                <div className="bg-orange-500/10 border border-orange-500/20 p-6 rounded-2xl relative">
                   <p className="text-sm text-orange-200">
                     Btw maaf banget aku kelupaan ikut PO cheki birthday kemarin 😭 nyesel parah huhu. Next time pasti gercep deh!
                   </p>
+                  <div className="absolute -bottom-3 -right-2 bg-orange-600 px-3 py-1 rounded-lg shadow-lg rotate-3">
+                    <p className="text-[10px] font-black text-white uppercase tracking-widest">
+                      Credit: @ikifer
+                    </p>
+                  </div>
                 </div>
 
               </div>
