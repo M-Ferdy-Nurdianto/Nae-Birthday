@@ -117,7 +117,7 @@ const StarSlider = ({ onStart }) => {
         className="z-10 text-center mb-6"
       >
         <h1 className="text-5xl font-black mb-1 bg-linear-to-b from-orange-300 via-orange-500 to-orange-800 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,140,0,0.5)]">
-          GALAXY NAE
+          BINTANG PISCES
         </h1>
         <p className="text-orange-200/60 tracking-[0.2em] uppercase text-[10px] font-bold">
           "Geser Analog untuk Memilih"
