@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StarSlider from './components/StarSlider';
 import BirthdayExperience from './components/BirthdayExperience';
 import SpotifyPlayer from './components/SpotifyPlayer';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 // Move star generation outside to ensure purity and avoid lint errors
 const STATIC_STARS = [...Array(50)].map((_, i) => ({

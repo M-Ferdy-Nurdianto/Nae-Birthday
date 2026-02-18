@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Star, Camera, RefreshCw, X } from 'lucide-react';
 import BirthdayCake from './BirthdayCake';
