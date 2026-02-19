@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { AnimatePresence, useMotionValue } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue } from 'framer-motion';
 import { Star, Sparkles, Crosshair } from 'lucide-react';
 
 const Crab = ({ className }) => (

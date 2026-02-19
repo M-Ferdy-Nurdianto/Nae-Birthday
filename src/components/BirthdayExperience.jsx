@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Star, Camera, RefreshCw, X } from 'lucide-react';
 import BirthdayCake from './BirthdayCake';
@@ -24,8 +24,8 @@ const CRAB_STARDUST = [...Array(10)].map((_, i) => ({
   size: 15 + (i % 5) * 5
 }));
 
-// Robust Photo Scrambling Logic
-const SHUFFLED_MEMORIES = (() => {
+// Photo Scrambling Logic
+const getShuffledMemories = () => {
   const ids = [...Array(12)].map((_, i) => i + 1);
   for (let i = ids.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -36,22 +36,24 @@ const SHUFFLED_MEMORIES = (() => {
     filename: `nae-${id}.webp`,
     rotation: (i % 2 === 0 ? -3 : 3) + (Math.random() * 2 - 1),
   }));
-})();
+};
 
-const PHOTO_SLOTS = (() => {
+const getPhotoSlots = (memories) => {
   const slots = [];
   for (let i = 0; i < 6; i++) {
-    slots.push([SHUFFLED_MEMORIES[i * 2], SHUFFLED_MEMORIES[i * 2 + 1]]);
+    slots.push([memories[i * 2], memories[i * 2 + 1]]);
   }
-  // Scramble the slots order too
   for (let i = slots.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [slots[i], slots[j]] = [slots[j], slots[i]];
   }
   return slots;
-})();
+};
 
 const BirthdayExperience = ({ birthYear }) => {
+  const SHUFFLED_MEMORIES = React.useMemo(() => getShuffledMemories(), []);
+  const PHOTO_SLOTS = React.useMemo(() => getPhotoSlots(SHUFFLED_MEMORIES), [SHUFFLED_MEMORIES]);
+
   const [stickers, setStickers] = React.useState([]);
   const [selectedSticker, setSelectedSticker] = React.useState('🦀');
   const [focusedPhoto, setFocusedPhoto] = React.useState(null);
@@ -79,7 +81,7 @@ const BirthdayExperience = ({ birthYear }) => {
     }, 4000); // Slowed down significantly for better visibility as requested. 
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [PHOTO_SLOTS.length]);
 
   // Auto-cleanup camera stream on unmount or tab close
   useEffect(() => {
