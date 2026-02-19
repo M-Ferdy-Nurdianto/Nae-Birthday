@@ -68,6 +68,14 @@ const BirthdayExperience = ({ birthYear }) => {
   const videoRef = React.useRef(null);
   const canvasRef = React.useRef(null);
 
+  // Preload all memory photos for smooth carousel and Polaroid transitions
+  useEffect(() => {
+    SHUFFLED_MEMORIES.forEach(photo => {
+      const img = new Image();
+      img.src = `/photos/${photo.filename}`;
+    });
+  }, [SHUFFLED_MEMORIES]);
+
   // Auto-cycling logic for the slots: Sequential 1-by-1 from left
   useEffect(() => {
     let currentSlot = 0;
@@ -494,6 +502,7 @@ const BirthdayExperience = ({ birthYear }) => {
                               transition={{ duration: 0.8, ease: "easeInOut" }}
                               src={`/photos/${currentPhoto.filename}`} 
                               alt="Memo" 
+                              loading="lazy"
                               className="w-full h-full object-cover contrast-[1.05] brightness-[1.02]"
                               onError={(e) => {
                                 e.target.src = `https://placehold.co/400x500/222/ffa500?text=NAE_${currentPhoto.id}`;
